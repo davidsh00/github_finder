@@ -1,0 +1,5 @@
+.center-box {
+    @apply w-full h-full flex justify-center items-center text-center select-none absolute left-[50%] top-[50%];
+    transform: translate(-50%, -50%);
+    font-family: "Russo One", sans-serif;
+  }

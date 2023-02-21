@@ -1,0 +1,3 @@
+.card {
+  @apply rounded-md p-4 bg-slate-500 text-white;
+}

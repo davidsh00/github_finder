@@ -1,0 +1,6 @@
+.main-footer {
+  @apply w-full text-center bg-slate-400 px-4 py-2 text-white ;
+}
+.main-footer__container {
+  @apply max-w-[1200px] mx-auto w-full;
+}

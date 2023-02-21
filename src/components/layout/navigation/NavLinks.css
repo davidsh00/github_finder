@@ -1,0 +1,6 @@
+.nav-links .active{
+    @apply text-gray-700
+}
+.nav-links{
+    @apply flex gap-4
+}

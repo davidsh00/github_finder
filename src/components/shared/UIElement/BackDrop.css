@@ -1,0 +1,3 @@
+.backdrop {
+  @apply w-screen h-screen fixed bg-black bg-opacity-60 flex justify-center items-center z-[11];
+}

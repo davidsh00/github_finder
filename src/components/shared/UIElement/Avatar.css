@@ -1,0 +1,11 @@
+.avatar {
+  @apply   rounded-full border-2 border-white relative w-16 h-16;
+}
+.avatar::after {
+  content: "";
+  @apply absolute top-0 left-0 w-full h-full rounded-full;
+  box-shadow: inset 2px -2px 10px 0px rgba(0, 0, 0, 0.3);
+}
+.avatar img {
+  @apply w-full h-full object-cover rounded-full;
+}

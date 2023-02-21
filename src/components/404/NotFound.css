@@ -1,0 +1,7 @@
+
+.not-found {
+  @apply max-w-[400px];
+}
+.not-found__code {
+  @apply inline-block mt-[-1rem] text-[5rem];
+}

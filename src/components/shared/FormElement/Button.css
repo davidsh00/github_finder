@@ -1,0 +1,15 @@
+.button {
+  @apply inline-block min-w-[100px] border border-slate-300 bg-black text-white px-3 py-1 cursor-pointer text-center transition-all  duration-200 rounded-xl;
+}
+.button:not(.disabled){
+  @apply hover:bg-white hover:border-slate-400 hover:shadow-slate-300 shadow hover:text-black;
+}
+.button.inverse:not(.disabled) {
+  @apply hover:opacity-60;
+}
+.button.inverse {
+  @apply bg-white text-black border-black;
+}
+.button.disabled{
+  @apply opacity-30;
+}

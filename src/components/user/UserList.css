@@ -1,0 +1,6 @@
+.user-list{
+    @apply flex flex-wrap gap-4 justify-center items-center
+}
+.user-list .card{
+
+}

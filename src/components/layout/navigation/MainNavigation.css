@@ -1,0 +1,6 @@
+.main-nav__title {
+  @apply text-2xl;
+}
+.main-nav{
+    @apply flex items-center justify-between px-4 py-2 max-w-[1200px] mx-auto
+}

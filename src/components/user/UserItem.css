@@ -1,0 +1,21 @@
+.user-item {
+  @apply w-[250px] cursor-pointer flex-grow   ;
+}
+.user-item .card {
+  @apply flex flex-col hover:bg-slate-700;
+}
+.user-item__content {
+  @apply flex gap-4 items-center;
+}
+.user-item .card .button {
+  @apply text-sm;
+}
+.user-actions > * {
+  @apply transition-all;
+}
+.user-actions > *:not(.show) {
+  @apply opacity-0;
+}
+.user-item:hover .user-actions > * {
+  @apply opacity-100;
+}
