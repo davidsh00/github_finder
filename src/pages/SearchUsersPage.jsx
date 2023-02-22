@@ -50,7 +50,13 @@ const SearchUsersPage = () => {
     setPage(0);
   }
   async function searchHandler(searchPage) {
-    if (latestLoading.current || !filters.user || error) {
+    console.log(latestPage, seUsers);
+    if (
+      latestLoading.current ||
+      !filters.user ||
+      error ||
+      (latestPage.current >= 1 && seUsers.total >= seUsers.items.length)
+    ) {
       return;
     }
     setLoading(true);
