@@ -1,5 +1,9 @@
 import "./BackDrop.css";
-const BackDrop = ({ children }) => {
-  return <div className="backdrop">{children}</div>;
+const BackDrop = ({ className, children, onClick }) => {
+  return (
+    <div className={`backdrop ${className ? className : ""}`} onClick={onClick}>
+      {children}
+    </div>
+  );
 };
 export default BackDrop;

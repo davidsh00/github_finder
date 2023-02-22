@@ -1,0 +1,13 @@
+.user-details{
+    @apply flex flex-col gap-4
+}
+.user-details__header{
+    @apply flex 
+}
+.user-details__content{
+    @apply flex flex-col justify-center items-center gap-2
+}
+.user-details__follow{
+    @apply flex  w-full gap-8 justify-center
+}
+

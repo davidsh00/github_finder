@@ -1,0 +1,18 @@
+.repo{
+    @apply flex flex-col gap-4 w-full
+}
+.repo__title{
+    @apply font-bold text-2xl 
+}
+.repo__list{
+    @apply flex flex-wrap gap-4 border p-4 
+}
+.repo__item{
+    @apply  border p-2 flex-grow
+}
+.repo__item a{
+    @apply flex gap-2 items-center justify-between
+}
+.repo__lang{
+
+}

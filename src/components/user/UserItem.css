@@ -13,7 +13,7 @@
 .user-actions > * {
   @apply transition-all;
 }
-.user-actions > *:not(.show) {
+.user-item .user-actions > *:not(.show) {
   @apply opacity-0;
 }
 .user-item:hover .user-actions > * {

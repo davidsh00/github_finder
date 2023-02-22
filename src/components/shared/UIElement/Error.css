@@ -1,0 +1,12 @@
+.error__message {
+  @apply text-red-500 font-bold text-3xl p-4;
+}
+.error {
+  @apply transition-all opacity-100;
+}
+.error.hide {
+  opacity: 0;
+}
+.error__close {
+  @apply absolute top-4 right-4 w-10 cursor-pointer z-[12] select-none;
+}
