@@ -54,8 +54,7 @@ const SearchUsersPage = () => {
     if (
       latestLoading.current ||
       !filters.user ||
-      error ||
-      (latestPage.current >= 1 && seUsers.total >= seUsers.items.length)
+      error 
     ) {
       return;
     }
@@ -86,7 +85,11 @@ const SearchUsersPage = () => {
   function fillPage() {
     const scrollHeight = document.documentElement.scrollHeight;
     const clientHeight = document.documentElement.clientHeight;
-    if (clientHeight == scrollHeight && latestPage.current > 0) {
+    if (
+      clientHeight == scrollHeight &&
+      latestPage.current > 0 &&
+      !latestLoading.current
+    ) {
       searchHandler(latestPage.current + 1);
     }
   }
