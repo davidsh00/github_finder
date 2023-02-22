@@ -10,6 +10,6 @@
     React-Router-Dom
     TailwindCss
 
-## [Github-Finder Demo](https://davidsh.ir/)
+## [Github-Finder Demo](https://github-finder-dz8o.vercel.app/)
 
 
