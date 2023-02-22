@@ -10,33 +10,19 @@ const SearchUsersPage = () => {
   const [loading, setLoading] = useState(false);
   const [seUsers, setSeUsers] = useState({ total: 0, items: [] });
   const [page, setPage] = useState(0);
-  const [filters, setFilters] = useState({});
+  const [filters, setFilters] = useState({
+    user: "",
+    location: "",
+    language: "",
+  });
+  const scrollH = useCallback(() => {
+    document.addEventListener("scroll", onScroll);
+  }, [filters]);
   const latestPage = useRef(null);
   const latestLoading = useRef(false);
   latestPage.current = page;
   latestLoading.current = loading;
   fillPage();
-
-  const onScroll = () => {
-    function barHeight() {
-      const actualHeight = window.innerHeight;
-      const contentHeight =
-        document.getElementById("controlHeight").clientHeight;
-      return contentHeight - actualHeight;
-    }
-    const scrollTop = document.documentElement.scrollTop;
-    const scrollHeight = document.documentElement.scrollHeight;
-    const clientHeight = document.documentElement.clientHeight;
-    if (scrollTop + clientHeight >= scrollHeight - barHeight()) {
-      if (!latestLoading.current) {
-        searchHandler(latestPage.current + 1);
-      }
-    }
-  };
-
-  const scrollH = useCallback(() => {
-    document.addEventListener("scroll", onScroll);
-  }, [filters]);
 
   useEffect(() => {
     if (page === 0 && filters.user) {
@@ -46,15 +32,19 @@ const SearchUsersPage = () => {
   }, [filters]);
 
   async function setFilterHandler(formFilters) {
+    setSeUsers({ total: 0, items: [] });
     setFilters(formFilters);
     setPage(0);
   }
   async function searchHandler(searchPage) {
-    console.log(latestPage, seUsers);
     if (
       latestLoading.current ||
       !filters.user ||
-      error 
+      error ||
+      (filters.user &&
+        latestPage.current > 0 &&
+        seUsers.items.length > 1 &&
+        seUsers.items.length >= seUsers.total)
     ) {
       return;
     }
@@ -77,20 +67,32 @@ const SearchUsersPage = () => {
       return { ...prev, items: [...prev.items, ...data.items] };
     });
   }
-  function searchResetHandler() {
-    setSeUsers({ total: 0, items: [] });
-    setPage(0);
-    setFilters({});
-  }
   function fillPage() {
     const scrollHeight = document.documentElement.scrollHeight;
     const clientHeight = document.documentElement.clientHeight;
+    console.log(latestPage.current, latestLoading.current);
     if (
       clientHeight == scrollHeight &&
       latestPage.current > 0 &&
       !latestLoading.current
     ) {
       searchHandler(latestPage.current + 1);
+    }
+  }
+  function onScroll() {
+    function barHeight() {
+      const actualHeight = window.innerHeight;
+      const contentHeight =
+        document.getElementById("controlHeight").clientHeight;
+      return contentHeight - actualHeight;
+    }
+    const scrollTop = document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight;
+    const clientHeight = document.documentElement.clientHeight;
+    if (scrollTop + clientHeight >= scrollHeight - barHeight()) {
+      if (!latestLoading.current) {
+        searchHandler(latestPage.current + 1);
+      }
     }
   }
   return (
@@ -104,7 +106,12 @@ const SearchUsersPage = () => {
         />
       )}
       {loading && <Loading />}
-      <SearchBox onSubmit={setFilterHandler} onReset={searchResetHandler} />
+      <SearchBox
+        onSubmit={setFilterHandler}
+        onReset={() => {
+          setFilterHandler({});
+        }}
+      />
       <UserList items={seUsers.items} />
     </>
   );
