@@ -70,7 +70,6 @@ const SearchUsersPage = () => {
   function fillPage() {
     const scrollHeight = document.documentElement.scrollHeight;
     const clientHeight = document.documentElement.clientHeight;
-    console.log(latestPage.current, latestLoading.current);
     if (
       clientHeight == scrollHeight &&
       latestPage.current > 0 &&
