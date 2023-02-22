@@ -12,10 +12,16 @@ const SearchUsersPage = () => {
   const [page, setPage] = useState(0);
   const [filters, setFilters] = useState({});
   const onScroll = () => {
+    function barHeight() {
+      const actualHeight = window.innerHeight;
+      const contentHeight =
+        document.getElementById("controlHeight").clientHeight;
+      return contentHeight - actualHeight;
+    }
     const scrollTop = document.documentElement.scrollTop;
     const scrollHeight = document.documentElement.scrollHeight;
     const clientHeight = document.documentElement.clientHeight;
-    if (scrollTop + clientHeight >= scrollHeight) {
+    if (scrollTop + clientHeight >= scrollHeight - barHeight()) {
       setPage(page + 1);
     }
   };
