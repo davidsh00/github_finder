@@ -4,7 +4,7 @@ const UserRepos = ({ repos }) => {
   if (repos?.length === 0) {
     return (
       <div className="repo">
-        <Card>There is no repo</Card>;
+        <Card>There is no repo</Card>
       </div>
     );
   }

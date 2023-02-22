@@ -32,13 +32,13 @@ const SearchBox = ({ onSubmit, onReset, filtersDisabled }) => {
       <div className="search-box__form-control">
         <input
           className="search-box__user-input"
-          type="text"
+          type="search"
           required
           ref={searchInputRef}
           name="github-search-user"
           placeholder="Enter UserName"
         />
-        <button className="search-box__search-btn">
+        <button className="search-box__search-btn" >
           <img src={searchIcon} alt="search" />
         </button>
         <button
